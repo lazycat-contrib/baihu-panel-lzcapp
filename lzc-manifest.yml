@@ -1,0 +1,51 @@
+name: Baihu Panel
+package: cloud.lazycat.app.baihu-panel
+version: 0.0.3
+min_os_version: 1.3.8
+description: "Lightweight cron job management system with Python, Node.js and Bash built-in"
+license: MIT
+homepage: https://github.com/engigu/baihu-panel
+author: engigu
+
+application:
+  subdomain: baihu
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://baihu:8052/
+
+services:
+  baihu:
+    # ghcr.io/engigu/baihu:latest
+    image: registry.lazycat.cloud/czyt/engigu/baihu:45666f85198d186d
+    environment:
+      - TZ=Asia/Shanghai
+      - BH_SERVER_PORT=8052
+      - BH_SERVER_HOST=0.0.0.0
+      - BH_DB_TYPE=sqlite
+      - BH_DB_PATH=/app/data/ql.db
+      - BH_DB_TABLE_PREFIX=baihu_
+      - PIP_EXTRA_INDEX_URL=https://mirrors.aliyun.com/pypi/simple/ https://repo.huaweicloud.com/repository/pypi/simple/ https://mirrors.cloud.tencent.com/pypi/simple/ https://pypi.org/simple
+      - PIP_TRUSTED_HOST=pypi.tuna.tsinghua.edu.cn mirrors.aliyun.com repo.huaweicloud.com mirrors.cloud.tencent.com pypi.org
+    binds:
+      - /lzcapp/var/data:/app/data
+      - /lzcapp/var/envs:/app/envs
+    cpu_shares: 512
+    mem_limit: 512M
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl -f http://localhost:8052/ || exit 1
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+locales:
+  en:
+    name: "Baihu Panel"
+    description: "Lightweight cron job management system with Python, Node.js and Bash built-in"
+  zh:
+    name: "白虎面板"
+    description: "轻量级定时任务管理系统，内置 Python、Node.js、Bash 环境"
