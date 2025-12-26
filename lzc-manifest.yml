@@ -9,8 +9,10 @@ author: engigu
 
 application:
   subdomain: baihu
+  background_task: true
   public_path:
     - /
+
   upstreams:
     - location: /
       backend: http://baihu:8052/
