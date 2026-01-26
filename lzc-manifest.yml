@@ -1,6 +1,6 @@
 name: Baihu Panel
 package: cloud.lazycat.app.baihu-panel
-version: 0.0.8
+version: 0.0.21
 min_os_version: 1.3.8
 description: "Lightweight cron job management system with Python, Node.js and Bash built-in"
 license: MIT
@@ -19,8 +19,8 @@ application:
 
 services:
   baihu:
-    #  ghcr.io/engigu/baihu:0.0.8
-    image: registry.lazycat.cloud/czyt/engigu/baihu:264aa70341be852a
+    #  ghcr.io/engigu/baihu:0.0.21
+    image: registry.lazycat.cloud/czyt/engigu/baihu:77eb94c7054178cf
     environment:
       - TZ=Asia/Shanghai
       - BH_SERVER_PORT=8052
