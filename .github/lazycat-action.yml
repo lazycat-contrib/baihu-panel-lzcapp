@@ -1,0 +1,45 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/baihu-panel.lpk
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: baihu
+
+build:
+  run_buildscript: false
+
+images:
+  - id: baihu
+    target: service
+    service: baihu
+    source: ghcr.io/engigu/baihu
+    channel: stable
+    tag_regex: '^\d+\.\d+\.\d+$'
+    version_regex: '^(?P<version>\d+\.\d+\.\d+)$'
+    delivery:
+      mode: lazycat
+
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    create_if_missing: true
+    changelog_locales: [zh, en]
+    application:
+      language: zh
+      name: 白虎面板
+      source: https://github.com/engigu/baihu-panel
+      source_author: engigu
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Baihu Panel
+    summary: Published from GitHub Actions

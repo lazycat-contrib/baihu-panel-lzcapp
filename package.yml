@@ -1,0 +1,16 @@
+package: cloud.lazycat.app.baihu-panel
+version: 0.0.21
+name: Baihu Panel
+description: "Lightweight cron job management system with Python, Node.js and Bash built-in"
+min_os_version: 1.5.0
+license: MIT
+homepage: https://github.com/engigu/baihu-panel
+author: engigu
+
+locales:
+  en:
+    name: "Baihu Panel"
+    description: "Lightweight cron job management system with Python, Node.js and Bash built-in"
+  zh:
+    name: "白虎面板"
+    description: "轻量级定时任务管理系统，内置 Python、Node.js、Bash 环境"
