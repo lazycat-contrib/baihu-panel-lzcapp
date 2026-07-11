@@ -3,15 +3,14 @@ application:
   background_task: true
   public_path:
     - /
-
   upstreams:
     - location: /
       backend: http://baihu:8052/
-
 services:
   baihu:
     #  ghcr.io/engigu/baihu:0.0.21
-    image: registry.lazycat.cloud/czyt/engigu/baihu:77eb94c7054178cf
+    # upstream: ghcr.io/engigu/baihu:1.1.19
+    image: registry.lazycat.cloud/czyt/engigu/baihu:114811440034c768
     environment:
       - TZ=Asia/Shanghai
       - BH_SERVER_PORT=8052
