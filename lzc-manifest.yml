@@ -9,8 +9,8 @@ application:
 services:
   baihu:
     #  ghcr.io/engigu/baihu:0.0.21
-    # upstream: ghcr.io/engigu/baihu:1.1.19
-    image: registry.lazycat.cloud/czyt/engigu/baihu:114811440034c768
+    # upstream: ghcr.io/engigu/baihu:1.1.20
+    image: registry.lazycat.cloud/czyt/engigu/baihu:f8ba894d6cf61bb6
     environment:
       - TZ=Asia/Shanghai
       - BH_SERVER_PORT=8052
