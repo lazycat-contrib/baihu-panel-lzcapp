@@ -3,7 +3,7 @@ version: 1.5.0
 name: Baihu Panel
 description: "Lightweight cron job management system with Python, Node.js and Bash built-in"
 min_os_version: 1.5.0
-license: MIT
+license: Apache-2.0
 homepage: https://github.com/engigu/baihu-panel
 author: engigu
 locales:
